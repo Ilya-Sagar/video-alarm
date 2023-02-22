@@ -1,6 +1,7 @@
 import cv2
 from Morph import Morph
 import time
+import requests
 
 
 morph = Morph()
@@ -44,5 +45,13 @@ while True:
                 square += 1
 
     print(square)
+
+    TOKEN = "Сюда вставьте свой токен"
+    chat_id = "Сюда вставьте ID чата"
+    message = "Здесь напишите свое сообщение"
+    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
+    requests.get(url).json()  # Эта строка отсылает сообщение
+
+    break
 
 cv2.destroyAllWindows()
